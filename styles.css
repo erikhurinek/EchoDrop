@@ -1,0 +1,174 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --surface: #151b24;
+  --surface-raised: #1b2430;
+  --surface-hover: #222d3b;
+  --ink: #edf2f7;
+  --muted: #8d99a8;
+  --line: #2a3543;
+  --purple: #9b7aff;
+  --purple-dark: #7d5ce6;
+  --green: #42c995;
+  --warning: #e7ad55;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .24);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; border: 0; }
+
+.page-content { max-width: 1370px; margin: 0 auto; padding: 38px 40px 65px; }
+.page-intro { display: flex; justify-content: flex-end; margin-bottom: 28px; }
+.connection { color: var(--muted); font-size: 10px; display: flex; align-items: center; gap: 7px; }
+.connection i { width: 7px; height: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 3px rgba(66, 201, 149, .15); }
+.connection.offline i { background: var(--warning); box-shadow: 0 0 0 3px rgba(231, 173, 85, .15); }
+
+.url-bar-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 17px 19px;
+  margin-bottom: 19px;
+  border: 1px solid #493f73;
+  border-radius: 7px;
+  background: linear-gradient(110deg, #1a1830, var(--surface));
+}
+.url-bar-form { display: flex; width: 100%; gap: 8px; }
+.url-bar-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: 0;
+  background: #10161e;
+  color: var(--ink);
+  font: 10px "DM Mono";
+}
+.url-bar-form input::placeholder, .search-wrap input::placeholder { color: #647181; }
+.url-bar-form input:focus, .search-wrap input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(155, 122, 255, .16); }
+
+.primary-btn, .download-btn {
+  background: var(--purple);
+  color: #120d20;
+  font-weight: 700;
+  border-radius: 6px;
+  transition: .2s;
+}
+.primary-btn:hover, .download-btn:hover { background: var(--purple-dark); color: #fff; transform: translateY(-1px); }
+.url-bar-form .primary-btn { flex-shrink: 0; padding: 0 14px; font-size: 10px; }
+.url-bar-form .primary-btn span { margin-left: 8px; font-size: 14px; }
+.primary-btn:disabled { cursor: wait; opacity: .7; transform: none; }
+
+.workspace-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr); gap: 19px; align-items: start; }
+.lecture-panel, .builder-panel, .queue-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  box-shadow: var(--shadow);
+}
+.lecture-panel { padding: 20px 20px 10px; }
+.section-heading { display: flex; align-items: center; margin-bottom: 15px; }
+.section-heading h2 { font: 600 15px "Space Grotesk"; margin: 0 0 4px; }
+.section-heading span { color: var(--muted); font-size: 10px; }
+.section-heading > div { margin-right: auto; }
+.search-wrap { position: relative; width: 295px; }
+.search-wrap span { position: absolute; left: 12px; top: 8px; font-size: 21px; color: #718094; transform: rotate(-15deg); }
+.search-wrap input {
+  width: 100%;
+  padding: 10px 12px 10px 35px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: 0;
+  background: #10161e;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.lecture-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  margin-bottom: 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .15s;
+}
+.lecture-item:hover, .lecture-item.selected { border-color: var(--purple); background: var(--surface-hover); }
+.lecture-details { min-width: 0; flex: 1; }
+.course-label { color: var(--purple); font: 500 9px "DM Mono"; letter-spacing: .5px; text-transform: uppercase; }
+.lecture-details h3 { margin: 4px 0 3px; font-size: 11px; }
+.lecture-details p { margin: 0; color: var(--muted); font-size: 9px; }
+.item-chevron { color: #68778a; font-size: 20px; }
+.empty-state { color: var(--muted); font-size: 10px; line-height: 1.5; padding: 18px 4px; text-align: center; }
+
+.builder-panel { padding: 22px 22px 17px; }
+.builder-header { margin-bottom: 19px; }
+.eyebrow { color: var(--purple); font: 500 9px "DM Mono"; letter-spacing: 1.4px; margin: 0 0 8px; }
+.builder-header h2 { margin: 0; font: 600 18px "Space Grotesk"; }
+.selected-lecture { display: flex; gap: 11px; padding-bottom: 17px; border-bottom: 1px solid var(--line); }
+.selected-thumb { width: 78px; height: 48px; flex-shrink: 0; border-radius: 4px; background: #302b4d; }
+.selected-lecture h3 { margin: 5px 0 4px; font-size: 12px; }
+.selected-lecture p { margin: 0; color: var(--muted); font-size: 10px; }
+.source-heading { display: flex; justify-content: space-between; align-items: flex-start; margin: 18px 0 11px; }
+.source-heading h3 { font-size: 12px; margin: 0 0 3px; }
+.source-heading p { color: var(--muted); margin: 0; font-size: 9px; }
+.source-count { color: var(--muted); font: 500 9px "DM Mono"; background: var(--surface-raised); padding: 5px 7px; border-radius: 3px; }
+.source-list { display: grid; gap: 7px; }
+.source-table-heading, .source-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(140px, .7fr); gap: 9px; align-items: center; }
+.source-table-heading { color: var(--muted); font: 500 9px "DM Mono"; padding: 0 10px 2px; text-transform: uppercase; }
+.source-row { padding: 7px 0; border-top: 1px solid var(--line); }
+.source-choice { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 7px 9px; border: 1px solid var(--line); border-radius: 5px; background: transparent; color: var(--ink); text-align: left; }
+.source-choice:hover, .source-choice.selected { border-color: var(--purple); background: var(--surface-hover); }
+.source-thumb { width: 58px; height: 36px; border-radius: 3px; flex-shrink: 0; display: grid; place-items: center; color: white; }
+.source-choice strong { display: block; font: 500 10px "DM Mono"; }
+.source-choice small { display: block; color: var(--muted); font-size: 9px; margin-top: 3px; }
+.audio-choice select { width: 100%; padding: 9px 7px; border: 1px solid var(--line); border-radius: 5px; background: #10161e; color: var(--ink); font-size: 10px; }
+.no-video-row { color: var(--muted); font-size: 10px; padding: 12px 9px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.output-settings { padding: 17px 0 15px; }
+.setting-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; color: var(--muted); font-size: 10px; border-bottom: 1px solid var(--line); }
+.setting-row strong { color: #c8d1dc; font: 9px "DM Mono"; }
+.download-btn { width: 100%; padding: 12px; font-size: 11px; }
+.download-btn > span { font-size: 17px; vertical-align: -1px; margin-right: 5px; }
+
+.queue-section {
+  margin-top: 20px;
+  padding: 14px;
+}
+.queue-section .section-heading { margin-bottom: 9px; }
+.queue-section .section-heading h2 { font-size: 13px; }
+.queue-list { display: grid; gap: 9px; max-height: 285px; overflow-y: auto; }
+.queue-job { display: grid; gap: 3px; padding: 8px 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface-raised); }
+.queue-job strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; }
+.queue-job span { color: var(--muted); font: 9px "DM Mono"; }
+.toast { position: fixed; right: 25px; bottom: 25px; background: #e9eef5; color: #10161e; padding: 13px 17px; border-radius: 6px; box-shadow: var(--shadow); transform: translateY(20px); opacity: 0; pointer-events: none; transition: .25s; font-size: 11px; }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 1000px) {
+  .page-content { padding: 30px 24px; }
+  .workspace-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .page-content { padding: 25px 14px 40px; }
+  .url-bar-form { flex-direction: column; }
+  .url-bar-form .primary-btn { padding: 11px; }
+  .search-wrap { width: 100%; }
+  .workspace-grid { gap: 12px; }
+  .lecture-panel, .builder-panel, .queue-section { padding: 15px; }
+  .source-table-heading, .source-row { grid-template-columns: 1fr; }
+  .source-table-heading span:last-child { display: none; }
+}

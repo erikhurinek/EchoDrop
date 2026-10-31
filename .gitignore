@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+cookie-header.txt
+browser-cookie-mode
+
+# Local output and logs
+downloads/
+lectures/
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

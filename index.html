@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EchoDrop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="page-content">
+    <section class="page-intro">
+      <div class="connection" id="connectionStatus"><i></i><span>Checking Brave cookies...</span></div>
+    </section>
+    <section class="url-bar-section">
+      <div class="url-bar-form"><input id="recordingUrl" type="url"
+          placeholder="https://echo360.org.uk/section/.../home" /><button class="primary-btn" id="resolveRecording">Load
+          lectures <span>→</span></button></div>
+    </section>
+    <div class="workspace-grid">
+      <section class="lecture-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Lectures</h2><span id="resultCount">0 lectures</span>
+          </div>
+          <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search"
+              placeholder="Search lectures..." /></div>
+        </div>
+        <div class="lecture-list" id="lectureList">
+          <p class="empty-state">Paste a section URL above to begin.</p>
+        </div>
+      </section>
+      <aside class="builder-panel">
+        <div class="builder-header">
+          <div>
+            <p class="eyebrow">STREAMS</p>
+            <h2>Choose video + audio</h2>
+          </div>
+        </div>
+        <div class="selected-lecture">
+          <div class="selected-thumb" id="selectedThumb"></div>
+          <div><span id="selectedCourse">NO LECTURE SELECTED</span>
+            <h3 id="selectedTitle">Select a lecture</h3>
+            <p id="selectedMeta">Its available streams will appear here.</p>
+          </div>
+        </div>
+        <div class="source-heading">
+          <div>
+            <h3>Available sources</h3>
+            <p>Choose video and audio independently. Either can be left empty.</p>
+          </div><span class="source-count" id="sourceCount">0</span>
+        </div>
+        <div class="source-list" id="sourceList">
+          <p class="empty-state">No lecture selected.</p>
+        </div>
+        <div class="output-settings">
+          <div class="setting-row"><span>Output</span><strong id="filenamePreview">Waiting for lecture</strong></div>
+        </div>
+        <button class="download-btn" id="downloadBtn"><span>↓</span> Download MP4</button>
+        <section class="queue-section" aria-label="Download queue">
+          <div class="section-heading">
+            <div>
+              <h2>Downloads</h2><span id="queueCount">No active jobs</span>
+            </div>
+          </div>
+          <div class="queue-list" id="queueList">
+            <p class="empty-state">Started downloads appear here.</p>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
